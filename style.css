@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to top, #87ceeb, #fffacd); /* day sky */
+    transition: background 2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.garden {
+    position: relative;
+    text-align: center;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 20px 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: #77dd77;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: skyblue;
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.sun, .moon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.sun {
+    background: radial-gradient(circle, #ffdf00, #ffae00);
+    z-index: 2;
+}
+
+/* White moon */
+.moon {
+    background: radial-gradient(circle, #fff, #bbb);
+    z-index: 2;
+}
+
+/* Stars for night mode */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0;
+    transition: opacity 2s;
+    z-index: 0;
+}
+
+
+@keyframes orbit {
+    0%   { top: 90%; left: 0%; opacity: 0; }
+    25%  { top: 50%; left: 25%; opacity: 1; }
+    50%  { top: 10%; left: 50%; }
+    75%  { top: 50%; left: 75%; opacity: 1; }
+    100% { top: 90%; left: 100%; opacity: 0; }
+}
+
+.plant {
+    font-size: 50px;
+    margin: 20px 0;
+}
+
+/* Health display */
+#health-count {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
